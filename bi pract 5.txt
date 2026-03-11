@@ -1,0 +1,27 @@
+> url<-"D:/bi/data.csv"
+> input<-read.csv(url)
+> head(input)
+> attach(input)
+> relation <- lm(weight ~ heaight)
+> summary(relation)
+> plot(input$Heaight,input$Weight,
++ main="heaight vs weight",
++ xlab="heaight",
++ ylab="weight",
++ pch=16,
++ col="blue")
+> abline(relation,col="red",lwd=2)
+> predicted<-predict(relation,input)
+> head(predicted)
+> coef(relation)
+> plot(input$heaight,input$weight,
++ main="heaight vs weight with regression line",
++ xlab="heaight",
++ ylab="weight",
++ pch=16,
++ col="blue")
+> 
+> lines(input$heaight,predicted,
++ col="red",
++ lwd=2)
+> 

@@ -1,0 +1,28 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read CSV file
+data = pd.read_csv("data.csv")
+
+# Print full data
+print(data)
+
+# Print first 5 rows
+print(data.head())
+
+# Group by Category and sum Price
+d = data.groupby('Category')['Price'].sum()
+print(d)
+
+# Calculate total stock
+total_Stock = data['Stock'].sum()
+print("Total stock:", total_Stock)
+
+# Plot graph
+d.plot(kind="line", marker="s")
+
+plt.plot(d.index, d.values, marker="s")
+plt.grid(True)
+
+# Show plot
+plt.show()
